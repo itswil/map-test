@@ -1,5 +1,9 @@
 var mapModule = (function() {
 
+  var map = L.map('map',{
+    animate: true,
+  } );
+
   var init = function() {
     initMap();
 
@@ -7,7 +11,7 @@ var mapModule = (function() {
   }
 
   var initMap = function() {
-    var map = L.map('map').setView([51.505, -0.09], 13);
+    map.setView([51.505, -0.09], 13);
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -21,15 +25,14 @@ var mapModule = (function() {
     var introPanel = $('.intro-panel');
 
     introPanel.on('click', function() {
-      // introPanel.addClass('intro-panel-closed');
-      console.log('kdkd');
-      introPanel.animate({
-        'margin-left': '-100px',
-      }, {
-        step: function() {
-          introPanel.css({'margin-left': '-100px'}, 200)
-        },
-      }, 200);
+      introPanel.fadeOut(500, function() {
+        map.panTo(new L.LatLng(52.505, -0.09), {animate: true, duration: 5.0});
+
+      });
+      // map.panTo(new L.LatLng(40.737, -73.923));
+      // if (navigator.geolocation) {
+      //   navigator.geolocation.getCurrentPosition(showPosition);
+      // }
     });
   }
 

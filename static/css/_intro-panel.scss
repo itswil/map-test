@@ -1,32 +1,38 @@
-@keyframe hide {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(.7);
-  }
-  100% {
-    transform: translateX(-200%);
-  }
-}
-
 .intro-panel {
-  background-color: #00C853;
+  background-color: #00c853;
   bottom: 0;
   height: 100%;
   left: 0;
   position: absolute;
   right: 0;
   top: 0;
+  transition: opacity 0.5s, visibility 0s 0.5s;
   width: 100%;
   z-index: 9999;
 
-  &.intro-panel-closed {
-    animation-name: hide;
-    animation-duration: 1s;
-    animation-iteration-count: 4;
-    animation-direction: alternate;
-    animation-timing-function: ease-in-out;
+  .open {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s;
   }
 
+  nav {
+    perspective: 1200px;
+  }
+
+  nav ul {
+    opacity: 0.4;
+    transform: translateY(-25%) rotateX(35deg);
+    transition: transform 0.5s, opacity 0.5s;
+  }
+
+
+  .open nav ul {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+
+  .close nav ul {
+    transform: translateY(25%) rotateX(-35deg);
+  }
 }

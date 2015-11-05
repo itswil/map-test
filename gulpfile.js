@@ -8,7 +8,6 @@ var concat = require('gulp-concat');
 
 var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
-var browserify = require('browserify');
 
 
 gulp.task('rmrf', function() {
