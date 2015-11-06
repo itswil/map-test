@@ -7,3 +7,21 @@
 
 @import 'map';
 @import 'intro-panel';
+
+.logo {
+  bottom: 10px;
+  position: absolute;
+  right: 20px;
+  width: 200px;
+  z-index: 9999;
+
+  img {
+    -webkit-filter: grayscale(100%);
+    transition: 0.4s all ease-in;
+    width: 100%;
+  }
+}
+
+.leaflet-control-attribution {
+  display: none;
+}

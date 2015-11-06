@@ -1,38 +1,42 @@
+$lime: #CCFF90;
+
 .intro-panel {
-  background-color: #00c853;
+  background-color: $lime;
   bottom: 0;
   height: 100%;
   left: 0;
+  opacity: .85;
   position: absolute;
   right: 0;
   top: 0;
-  transition: opacity 0.5s, visibility 0s 0.5s;
   width: 100%;
   z-index: 9999;
 
-  .open {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.5s;
+  .intro-panel-content {
+    margin: auto;
+    max-width: 1200px;
+    padding: 20px;
   }
 
-  nav {
-    perspective: 1200px;
+  h1 {
+    font-size: 10em;
+    margin-bottom: .3em;
   }
 
-  nav ul {
-    opacity: 0.4;
-    transform: translateY(-25%) rotateX(35deg);
-    transition: transform 0.5s, opacity 0.5s;
+  .cta {
+    cursor: pointer;
+    font-size: 3em;
   }
 
-
-  .open nav ul {
-    opacity: 1;
-    transform: rotateX(0deg);
-  }
-
-  .close nav ul {
-    transform: translateY(25%) rotateX(-35deg);
+  .bubble {
+    background: #333;
+    border-radius: 50%;
+    color: $lime;
+    display: inline-block;
+    height: 1em;
+    line-height: 0.9em;
+    margin-left: 10px;
+    padding-left: 18px;
+    width: 1em;
   }
 }
