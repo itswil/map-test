@@ -65,24 +65,39 @@ var mapModule = (function() {
 
     introCta.on('click', function() {
       introPanel.fadeOut(800, function() {
-        map.panTo(new L.LatLng(currentLat, currentLng), {animate: true, duration: 4, zoom: 13});
+        map.panTo(new L.LatLng(currentLat, currentLng), {animate: true, duration: 1, zoom: 13});
         $('.logo img').css({'-webkit-filter': 'grayscale(0)'});
         // setTimeout(function(){ populateMarkers(); }, 2000);
       });
     });
 
-    $('.leaflet-clickable').on('click', function() {
-      $('.gallery-panel').fadeIn(800);
-      getImages();
+    $('.close').on('click', function() {
+      $('.gallery-panel').fadeOut(800, function(){
+        $('.gallery').slick('unslick');
+      });
+
     });
   }
 
-  var getImages() {
+  var getImages = function() {
+    var location = this.getLatLng();
+    var url = 'http://teamsilva.azurewebsites.net/Images/GetImageJsonForLatLng?lat=' + location.lat + '&lng=' + location.lng;
+
     $.ajax({
-      url: 'http://teamsilva.azurewebsites.net/Images/GetImageJsonForLatLng?lat=51.4886&lng=-0.1207',
+      url: url,
     }).done(function(data) {
 
-    }
+      $('.gallery-panel').fadeIn(800).append(data);
+      var images = data.ImageList;
+
+      var markup;
+
+      for (i=0; i < images.length; i++) {
+        markup += '<div><img src="' + images[i].ImageUrl + '" /></div>';
+      }
+
+      $('.gallery').html(markup).slick();
+    });
   }
 
   var populateMarkers = function() {
@@ -94,7 +109,7 @@ var mapModule = (function() {
 
       for (i=0; i < imageList.length; i++) {
         var marker = L.marker([imageList[i].Latitude, imageList[i].Longitude])
-        marker.addTo(map);
+        marker.addTo(map).on('click', getImages);
       }
     });
 

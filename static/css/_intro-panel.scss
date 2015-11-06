@@ -48,10 +48,23 @@ $lime: #CCFF90;
   display: none;
   height: 100%;
   left: 0;
-  opacity: .85;
   position: absolute;
   right: 0;
   top: 0;
   width: 100%;
   z-index: 9999;
+
+  .gallery-panel-content {
+    margin: auto;
+    max-width: 1000px;
+  }
+
+  img {
+    text-align: center;
+  }
+
+  .gallery {
+    margin: auto;
+    width: 400px;
+  }
 }
