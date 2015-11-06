@@ -43,7 +43,6 @@ $lime: #CCFF90;
 
 
 .gallery-panel {
-  background-color: #fff;
   bottom: 0;
   display: none;
   height: 100%;
@@ -51,12 +50,13 @@ $lime: #CCFF90;
   position: absolute;
   right: 0;
   top: 0;
-  width: 100%;
+  width: 400px;
+  margin: -20px auto;
   z-index: 9999;
 
   .gallery-panel-content {
     margin: auto;
-    max-width: 1000px;
+    max-width: 400px;
   }
 
   img {
@@ -64,7 +64,6 @@ $lime: #CCFF90;
   }
 
   .gallery {
-    margin: auto;
-    width: 400px;
+    position: relative;
   }
 }

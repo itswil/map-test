@@ -96,7 +96,10 @@ var mapModule = (function() {
         markup += '<div><img src="' + images[i].ImageUrl + '" /></div>';
       }
 
-      $('.gallery').html(markup).slick();
+      $('.gallery').html(markup).slick({
+        prevArrow: '<span class="slick-prev slick-arrow">&lsaquo;</span>',
+        nextArrow: '<span class="slick-next slick-arrow">&rsaquo;</span>',
+      });
     });
   }
 
