@@ -40,3 +40,18 @@ $lime: #CCFF90;
     width: 1em;
   }
 }
+
+
+.gallery-panel {
+  background-color: #fff;
+  bottom: 0;
+  display: none;
+  height: 100%;
+  left: 0;
+  opacity: .85;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
