@@ -89,11 +89,11 @@ var mapModule = (function() {
 
       $('.gallery-panel').fadeIn(800).append(data);
       var images = data.ImageList;
-
+      console.log(images);
       var markup;
 
       for (i=0; i < images.length; i++) {
-        markup += '<div><img src="' + images[i].ImageUrl + '" /></div>';
+        markup += '<div><img src="' + images[i].ImageUrl + '" /><p>' + images[i].Name + '</div>';
       }
 
       $('.gallery').html(markup).slick({
